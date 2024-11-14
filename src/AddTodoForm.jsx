@@ -1,17 +1,23 @@
 import * as React from "react";
 
-function AddTodoForm() {
-  return (
-    <div>
-      <form>
-        <label htmlFor="Title" id="todoTitle">
-          Title:{" "}
-        </label>
-        <input type="text" id="todoTitle" />
+function AddTodoForm({ onAddTodo }) {
+  const [inputValue, setInputValue] = React.useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onAddTodo(inputValue);
+    setInputValue("");
+  };
 
-        <button type="submit">Add</button>
-      </form>
-    </div>
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(event) => setInputValue(event.target.value)}
+        placeholder="Add a new to-do"
+      />
+      <button type="submit">Add</button>{" "}
+    </form>
   );
 }
 
