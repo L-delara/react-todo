@@ -4,8 +4,10 @@ function AddTodoForm({ onAddTodo }) {
   const [inputValue, setInputValue] = React.useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
-    onAddTodo(inputValue);
-    setInputValue("");
+    const title = inputValue; // Explicitly store the value in title
+    console.log(title); // Log the value in the console
+    onAddTodo(title); // Pass the value to the parent
+    setInputValue(""); // Clear the input field
   };
 
   return (
