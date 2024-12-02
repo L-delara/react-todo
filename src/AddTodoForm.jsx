@@ -20,6 +20,8 @@ function AddTodoForm({ onAddTodo }) {
     <form onSubmit={handleAddTodo}>
       <input
         type="text"
+        name="title"
+        id="title"
         value={todoTitle}
         onChange={handleTitleChange}
         placeholder="Add a new to-do"
