@@ -1,7 +1,7 @@
-export default function TodoListItem({ title }) {
+export default function TodoListItem({ title, onRemoveTodo, id }) {
   return (
     <li>
-      {title} <button>remove</button>
+      {title} <button onClick={() => onRemoveTodo(id)}>delete</button>
     </li>
   );
 }
