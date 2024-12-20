@@ -7,7 +7,22 @@ function App() {
   const currentTodosList = JSON.parse(
     localStorage.getItem("savedTodoList")
   );
-  const [todoList, setTodoList] = React.useState(currentTodosList);
+  const [todoList, setTodoList] = useState([]);
+
+  useEffect(() => {
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const object = {
+          data: {
+            todoList: currentTodosList,
+          },
+        };
+        resolve(object);
+      }, 2000);
+    }).then((result) => {
+      setTodoList(result.data.todoList);
+    });
+  }, []);
 
   useEffect(() => {
     const todoListString = JSON.stringify(todoList);
