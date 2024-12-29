@@ -4,13 +4,13 @@ import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
 
 function App() {
-  const currentTodosList = JSON.parse(
-    localStorage.getItem("savedTodoList")
-  );
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const currentTodosList = JSON.parse(
+      localStorage.getItem("savedTodoList")
+    );
     new Promise((resolve, reject) => {
       setTimeout(() => {
         const object = {
