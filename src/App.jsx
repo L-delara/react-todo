@@ -22,7 +22,7 @@ function App() {
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
-        const message = "error has occured: ${response.status}";
+        const message = `error has occured: ${response.status}`;
         throw new Error(message);
       }
 
@@ -48,7 +48,6 @@ function App() {
   useEffect(() => {
     if (!isLoading) {
       const todoListString = JSON.stringify(todoList);
-      localStorage.setItem("savedTodoList", todoListString);
     }
   }, [todoList, isLoading]);
 
