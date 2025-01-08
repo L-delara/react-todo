@@ -77,7 +77,15 @@ function App() {
               )}
             </main>
           }
-        ></Route>
+        />
+        <Route
+          path="/new"
+          element={
+            <main>
+              <h1>New To-do List</h1>
+            </main>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
