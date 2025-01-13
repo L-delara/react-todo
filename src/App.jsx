@@ -2,6 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -22,7 +23,7 @@ function App() {
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
-        const message = "error has occured: ${response.status}";
+        const message = `error has occured: ${response.status}`;
         throw new Error(message);
       }
 
@@ -48,7 +49,6 @@ function App() {
   useEffect(() => {
     if (!isLoading) {
       const todoListString = JSON.stringify(todoList);
-      localStorage.setItem("savedTodoList", todoListString);
     }
   }, [todoList, isLoading]);
 
@@ -62,15 +62,32 @@ function App() {
   }
 
   return (
-    <>
-      <h1>To-Do List</h1>
-      <AddTodoForm onAddTodo={addTodo} />
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-      )}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main>
+              <h1>To-Do List</h1>
+              <AddTodoForm onAddTodo={addTodo} />
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+              )}
+            </main>
+          }
+        />
+        <Route
+          path="/new"
+          element={
+            <main>
+              <h1>New To-do List</h1>
+            </main>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
