@@ -1,42 +1,66 @@
-#root {
-  max-width: 1280px;
+body {
+  background-color: rgba(225, 201, 244, 0.6);
+}
+
+main .todoContainer {
+  background-color: rgb(255, 255, 255);
+  max-width: 75%;
+  display: block;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-}
+  border: 1px solid rgb(223, 215, 252);
+  border-radius: 5px;
+  box-shadow: 5px 8px 8px rgba(1, 1, 1, 0.2);
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgb(30, 10, 50);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+h1 {
+  font-family: "Shadows Into Light", serif;
+  font-size: 48px;
+  margin-bottom: 0;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h3 {
+  font-family: "Shadows Into Light", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  margin-top: 0;
 }
+button {
+  font-family: "Quicksand", serif;
+  background-color: transparent;
+  border: 1px solid rgba(174, 87, 201, 0.7);
+  transition: all 200ms ease;
+}
+button:hover {
+  background-color: rgba(199, 146, 244);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgba(174, 87, 201, 0.9);
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.footerContainer {
+  background-color: rgb(255, 255, 255);
+  max-width: 75%;
+  display: block;
+  margin: 0 auto;
+  padding: 6px 0;
+  text-align: center;
+  border: 1px solid rgb(223, 215, 252);
+  border-radius: 5px;
+  box-shadow: 5px 8px 8px rgba(1, 1, 1, 0.2);
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-family: "Quicksand", serif;
+  font-weight: normal;
+  font-size: 12px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+a {
+  text-decoration: none;
+  color: rgba(174, 87, 201, 0.9);
 }
