@@ -16,7 +16,7 @@ function InputWithLabel(props) {
         id="title"
         value={props.todoTitle}
         onChange={props.handleTitleChange}
-        placeholder="Add a new to-do"
+        placeholder="add a new to-do"
         ref={inputRef}
       />
     </>

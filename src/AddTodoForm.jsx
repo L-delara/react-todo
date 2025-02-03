@@ -19,9 +19,9 @@ function AddTodoForm({ onAddTodo }) {
         todoTitle={todoTitle}
         handleTitleChange={handleTitleChange}
       >
-        <h3>Add new to-do:</h3>
+        <h3>add new to-do:</h3>
       </InputWithLabel>
-      <button type="submit">Add</button>
+      <button type="submit">add</button>
     </form>
   );
 }
