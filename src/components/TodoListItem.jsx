@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function TodoListItem({ title, onRemoveTodo, id }) {
   return (
     <li>
@@ -5,3 +7,8 @@ export default function TodoListItem({ title, onRemoveTodo, id }) {
     </li>
   );
 }
+
+TodoListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  onRemoveTodo: PropTypes.func.isRequired,
+};
