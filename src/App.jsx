@@ -60,7 +60,9 @@ function App() {
 
     const url = `https://api.airtable.com/v0/${
       import.meta.env.VITE_AIRTABLE_BASE_ID
-    }/${import.meta.env.VITE_TABLE_NAME}`;
+    }/${
+      import.meta.env.VITE_TABLE_NAME
+    }?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`;
 
     try {
       const response = await fetch(url, options);
@@ -77,7 +79,20 @@ function App() {
         };
       });
 
-      setTodoList(todos);
+      const sortedList = todos.sort((objectA, objectB) => {
+        const titleA = objectA.title;
+        const titleB = objectB.title;
+
+        if (titleA > titleB) {
+          return -1;
+        } else if (titleA < titleB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+
+      setTodoList(sortedList);
       setIsLoading(false);
     } catch (error) {
       console.log(error.message);
