@@ -1,10 +1,15 @@
 body {
   background-color: rgba(225, 201, 244, 0.6);
+  background-image: url("images/wildflower.png");
+  background-repeat: repeat-x;
+  background-size: 500px 250px;
+  background-position-y: bottom;
+  height: 100vh;
 }
 
 main .todoContainer {
-  background-color: rgb(255, 255, 255);
-  max-width: 75%;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 70%;
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -28,26 +33,36 @@ h3 {
   font-weight: 400;
   font-style: normal;
   font-size: 32px;
-  margin-top: 0;
+  margin: 0;
 }
 button {
   font-family: "Quicksand", serif;
   background-color: transparent;
   border: 1px solid rgba(174, 87, 201, 0.7);
+  border-radius: 4px;
   transition: all 200ms ease;
+  margin-left: 15px;
 }
 button:hover {
   background-color: rgba(199, 146, 244);
   color: rgb(255, 255, 255);
   border: 1px solid rgba(174, 87, 201, 0.9);
 }
+button.sorter {
+  margin: 10px 0;
+}
+button.addButton {
+  margin-left: 2px;
+}
 ul {
   list-style: none;
   padding: 0;
+  margin: 0 auto 15px;
+  width: 50vw;
 }
 .footerContainer {
-  background-color: rgb(255, 255, 255);
-  max-width: 75%;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 70%;
   display: block;
   margin: 0 auto;
   padding: 6px 0;

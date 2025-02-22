@@ -22,7 +22,9 @@ function AddTodoForm({ onAddTodo }) {
       >
         <h3>add new to-do:</h3>
       </InputWithLabel>
-      <button type="submit">add</button>
+      <button className="addButton" type="submit">
+        add
+      </button>
     </form>
   );
 }
