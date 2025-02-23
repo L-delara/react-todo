@@ -8,6 +8,7 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [sortABC, setSortABC] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   async function postTodos(todoTitle) {
     const options = {
@@ -107,6 +108,15 @@ function App() {
     }
   }, [sortABC, isLoading]);
 
+  useEffect(() => {
+    const body = document.body;
+    if (isDarkMode) {
+      body.classList.add("dark");
+    } else {
+      body.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
   function addTodo(todoTitle) {
     postTodos(todoTitle);
   }
@@ -119,6 +129,10 @@ function App() {
     setSortABC(!sortABC);
   }
 
+  const changeTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -126,11 +140,14 @@ function App() {
           path="/"
           element={
             <main>
-              <div className="todoContainer">
+              <div className={`todoContainer ${isDarkMode ? "dark" : ""}`}>
                 <h1>To-Do List</h1>
                 <AddTodoForm onAddTodo={addTodo} />
                 <button onClick={handleSortClick} className="sorter">
                   Change Sort
+                </button>{" "}
+                <button onClick={changeTheme} className="dark-button">
+                  {isDarkMode ? "Bright View" : "Dark View"}
                 </button>
                 {isLoading ? (
                   <p>Loading...</p>

@@ -14,3 +14,9 @@ A basic add/remove to-do application designed for [Code The Dream](https://codet
 - Clone the repository
 - install dependencies with npm install
 - run with npm run dev
+
+## Current issues/future solves
+
+- sort by date added... currently only alphabetically
+- add a mark done instead of just delete
+- add a nav bar

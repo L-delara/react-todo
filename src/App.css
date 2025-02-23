@@ -1,8 +1,8 @@
 body {
-  background-color: rgba(225, 201, 244, 0.6);
+  background-color: rgba(227, 173, 244, 0.6);
   background-image: url("images/wildflower.png");
   background-repeat: repeat-x;
-  background-size: 500px 250px;
+  background-size: 500px 300px;
   background-position-y: bottom;
   height: 100vh;
 }
@@ -44,7 +44,7 @@ button {
   margin-left: 15px;
 }
 button:hover {
-  background-color: rgba(199, 146, 244);
+  background-color: rgba(190, 137, 237, 0.9);
   color: rgb(255, 255, 255);
   border: 1px solid rgba(174, 87, 201, 0.9);
 }
@@ -78,4 +78,9 @@ ul {
 a {
   text-decoration: none;
   color: rgba(174, 87, 201, 0.9);
+}
+
+/* Dark mode colors */
+.dark {
+  background-color: rgb(121, 45, 129, 0.8);
 }
