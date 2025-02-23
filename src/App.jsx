@@ -1,13 +1,14 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TodoList from "./components/TodoList";
 import AddTodoForm from "./components/AddTodoForm";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+  const [sortABC, setSortABC] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   async function postTodos(todoTitle) {
     const options = {
@@ -79,20 +80,7 @@ function App() {
         };
       });
 
-      const sortedList = todos.sort((objectA, objectB) => {
-        const titleA = objectA.title;
-        const titleB = objectB.title;
-
-        if (titleA > titleB) {
-          return -1;
-        } else if (titleA < titleB) {
-          return 1;
-        } else {
-          return 0;
-        }
-      });
-
-      setTodoList(sortedList);
+      setTodoList(todos);
       setIsLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -105,9 +93,29 @@ function App() {
 
   useEffect(() => {
     if (!isLoading) {
-      const todoListString = JSON.stringify(todoList);
+      const sortedTodoList = [...todoList].sort((objectA, objectB) => {
+        const titleA = objectA.title;
+        const titleB = objectB.title;
+
+        if (sortABC) {
+          return titleA.localeCompare(titleB);
+        } else {
+          return titleB.localeCompare(titleA);
+        }
+      });
+
+      setTodoList(sortedTodoList);
     }
-  }, [todoList, isLoading]);
+  }, [sortABC, isLoading]);
+
+  useEffect(() => {
+    const body = document.body;
+    if (isDarkMode) {
+      body.classList.add("dark");
+    } else {
+      body.classList.remove("dark");
+    }
+  }, [isDarkMode]);
 
   function addTodo(todoTitle) {
     postTodos(todoTitle);
@@ -117,6 +125,13 @@ function App() {
     const deletedTodoItem = todoList.filter((todo) => todo.id !== id);
     setTodoList(deletedTodoItem);
   }
+  function handleSortClick() {
+    setSortABC(!sortABC);
+  }
+
+  const changeTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <BrowserRouter>
@@ -125,9 +140,15 @@ function App() {
           path="/"
           element={
             <main>
-              <div className="todoContainer">
+              <div className={`todoContainer ${isDarkMode ? "dark" : ""}`}>
                 <h1>To-Do List</h1>
                 <AddTodoForm onAddTodo={addTodo} />
+                <button onClick={handleSortClick} className="sorter">
+                  Change Sort
+                </button>{" "}
+                <button onClick={changeTheme} className="dark-button">
+                  {isDarkMode ? "Bright View" : "Dark View"}
+                </button>
                 {isLoading ? (
                   <p>Loading...</p>
                 ) : (

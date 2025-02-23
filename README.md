@@ -1,8 +1,22 @@
-# React + Vite
+# To Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A basic add/remove to-do application designed for [Code The Dream](https://codethedream.org)'s React course.
 
-Currently, two official plugins are available:
+## To run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or yarn
+
+2. Running
+
+- Clone the repository
+- install dependencies with npm install
+- run with npm run dev
+
+## Current issues/future solves
+
+- sort by date added... currently only alphabetically
+- add a mark done instead of just delete
+- add a nav bar
